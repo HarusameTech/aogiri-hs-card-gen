@@ -6,7 +6,14 @@ header { background: var(--blue); color: #fff; padding: 14px 20px; }
 header h1 { margin: 0; font-size: 20px; }
 header .note { margin: 4px 0 0; font-size: 12px; opacity: .85; }
 main { display: flex; gap: 24px; padding: 20px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
-.preview { flex: 0 1 480px; position: sticky; top: 12px; text-align: center; }
+.preview { flex: 0 1 480px; width: 100%; text-align: center; }
+/* 2 カラムになる幅のときだけ、プレビューをスクロールに追従させる */
+@media (min-width: 960px) {
+  .preview { position: sticky; top: 12px; }
+}
+@media (max-width: 600px) {
+  main { padding: 12px; gap: 16px; }
+}
 canvas { width: 100%; max-width: 480px; height: auto; aspect-ratio: 3/4; background: #fff;
   border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.25); touch-action: none; }
 .panel { flex: 1 1 380px; max-width: 560px; }
