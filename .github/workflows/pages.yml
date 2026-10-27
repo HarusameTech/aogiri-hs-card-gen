@@ -1,6 +1,8 @@
 # GitHub Pages へ静的ファイルだけをデプロイする。
-# 公開先: https://<username>.github.io/aogiri-hs-card-gen/
-# （リポジトリ名が aogiri-hs-card-gen のとき。アセットはすべて相対パス参照なので、サブパスでもそのまま動く）
+# 公開先: https://apps.harusame.tech/aogiri-hs-card-gen/
+# （カスタムドメインはユーザーページ用リポジトリ <username>.github.io 側で設定する。
+#   このリポジトリには CNAME ファイルを置かず、Pages 設定の Custom domain も空のままにする。
+#   アセットはすべて相対パス参照なので、サブパスでもそのまま動く）
 # テンプレート画像は含めない（利用者が各自で読み込む）。
 name: Deploy to GitHub Pages
 
@@ -29,7 +31,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp aogiri-hs-card-gen/index.html aogiri-hs-card-gen/app.js aogiri-hs-card-gen/style.css _site/aogiri-hs-card-gen/
+          cp aogiri-hs-card-gen/index.html aogiri-hs-card-gen/app.js aogiri-hs-card-gen/style.css _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
